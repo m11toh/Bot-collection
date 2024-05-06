@@ -1,8 +1,8 @@
 import { useEffect,useState } from 'react';
 
-function Data(){
+function Yourbots(){
     function LoadApi(){
-        fetch("http://localhost:3000/bots")
+        fetch("http://localhost:3000/Yourbot")
         .then((res) => res.json())
         .then((data) => setActivity(data))
     }
@@ -14,7 +14,6 @@ function Data(){
 
     return(
         <>
-        lorem ipsum
         {activity.map(i => (
             <div className="row row-cols-1 row-cols-md-3 g-4 p-4 m-4">
                <div class="row">
@@ -36,4 +35,4 @@ function Data(){
     )
 }
 
-export default Data;
+export default Yourbots;
