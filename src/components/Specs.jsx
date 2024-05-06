@@ -1,9 +1,8 @@
 import { useEffect,useState } from 'react';
-import { Link } from 'react-router-dom';
 
-function Data(){
+function Yourbots(){
     function LoadApi(){
-        fetch("http://localhost:3000/bots")
+        fetch("http://localhost:3000/Yourbot")
         .then((res) => res.json())
         .then((data) => setActivity(data))
     }
@@ -18,7 +17,6 @@ function Data(){
         {activity.map(i => (
             <div className="row row-cols-1 row-cols-md-3 g-4 p-4 m-4">
                <div class="row">
-                <Link to={`/Myspec/${i.id}`}> 
                     <div class="card h-40 w-60">
                         <img src={i.avatar_url} class="card-img-top" alt="..."/>
                         <div class="card-body">
@@ -29,7 +27,6 @@ function Data(){
                             <small class="text-body-secondary">{i.bot_class}</small>
                         </div>
                     </div>
-                </Link>
                 </div> 
             </div>
 
@@ -38,4 +35,4 @@ function Data(){
     )
 }
 
-export default Data;
+export default Yourbots;

@@ -8,11 +8,13 @@ function App() {
   return (
     <>
 
-    <Navbar />
+    
     <BrowserRouter>
+    <Navbar />
     <Routes>
     <Route path='/'element={<Data />}/>
     <Route path='/Mybots'element={<Yourbots />}/>
+    <Route path='/Myspec/:id'element={<Yourbots />}/>
     
     </Routes>
     </BrowserRouter>

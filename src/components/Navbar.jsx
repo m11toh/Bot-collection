@@ -6,7 +6,7 @@ const Navbar = () =>{
             <div className="container-fluid">
             <Link to="/">Bot</Link>
             <Link to="/">Home</Link>
-            <Link to="/Mybot">Yourbot</Link>
+            <Link to="/Mybots">Yourbot</Link>
             </div>
         </nav>
     )
