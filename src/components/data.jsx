@@ -1,6 +1,7 @@
 import { useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 function Data(){
     function LoadApi(){
         fetch("http://localhost:3000/bots")
@@ -24,6 +25,9 @@ function Data(){
                         <div class="card-body">
                             <h5 class="card-title">{i.name}</h5>
                             <p class="card-text">{i.catchphrase}</p>
+                                <i class="bi bi-heart-pulse-fill p-4">{i.health}</i>
+                                <i class="bi bi-lightning-fill p-4">{i.damage}</i>
+                                <i class="bi bi-shield-shaded p-4" > {i.armor}</i>
                         </div>
                         <div class="card-footer">
                             <small class="text-body-secondary">{i.bot_class}</small>

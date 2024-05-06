@@ -23,6 +23,7 @@ function Yourbots(){
                             <h5 class="card-title">{i.name}</h5>
                             <p class="card-text">{i.catchphrase}</p>
                         </div>
+                        
                         <div class="card-footer">
                             <small class="text-body-secondary">{i.bot_class}</small>
                         </div>

@@ -1,5 +1,6 @@
 import { useEffect,useState } from 'react';
 
+
 function Yourbots(){
     function LoadApi(){
         fetch("http://localhost:3000/Yourbot")
@@ -23,6 +24,7 @@ function Yourbots(){
                             <h5 class="card-title">{i.name}</h5>
                             <p class="card-text">{i.catchphrase}</p>
                         </div>
+                        <button></button>
                         <div class="card-footer">
                             <small class="text-body-secondary">{i.bot_class}</small>
                         </div>
