@@ -1,25 +1,47 @@
-import Data from './components/data';
-import './App.css';
-import Navbar from './components/Navbar';
-import Yourbots from './components/Yourbots';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import BotCollection from "./components/BotCollection";
+import BotArmy from "./components/BotArmy";
+import "./App.css";
 
 function App() {
-  return (
-    <>
+  const [bots, setBots] = useState([]);
+  const [enlistedBots, setEnlistedBots] = useState([]); 
 
-    
-    <BrowserRouter>
-    <Navbar />
-    <Routes>
-    <Route path='/'element={<Data />}/>
-    <Route path='/Mybots'element={<Yourbots />}/>
-    <Route path='/Myspec/:id'element={<Yourbots />}/>
-    
-    </Routes>
-    </BrowserRouter>
-    </>
+  useEffect(() => {
+    // Fetch data from the API
+    fetch('https://my-json-server.typicode.com/martinwakaba/Bot-Battlr/bots')
+    .then((resp) => resp.json())
+    .then((data) => setBots(data))
+    .catch((error) => console.error('Error fetching data:', error));
+}, []);
+
+const releaseFromArmy = (updatedEnlistedBots) => {
+  // Implement the logic to release bots from the army
+  setEnlistedBots(updatedEnlistedBots);
+};
+
+function handleBotDischarge(bot) {
+  // Remove the bot from enlistedBots in the frontend
+  const updatedEnlistedBots = enlistedBots.filter((enlistedBot) => enlistedBot.id !== bot.id);
+  setEnlistedBots(updatedEnlistedBots);
+}
+ 
+
+  return (
+    <div className="App">
+       <BotArmy 
+        enlistedBots={enlistedBots} 
+        releaseFromYourBotArmy={releaseFromArmy}/> 
+
+      <BotCollection
+       bots={bots} 
+       enlistedBots={enlistedBots} 
+       setEnlistedBots={setEnlistedBots}
+       handleBotDischarge={handleBotDischarge}
+      />
+      
+      
+    </div>
   );
 }
-
-export default App;
+export default App
